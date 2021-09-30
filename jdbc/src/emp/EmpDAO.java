@@ -42,7 +42,6 @@ public class EmpDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-
 		List<empDTO> list = new ArrayList<empDTO>();
 
 		try {
@@ -62,6 +61,7 @@ public class EmpDAO {
 				dto.setComm(rs.getInt("comm"));
 				dto.setDeptno(rs.getInt("deptno"));
 
+				list = new ArrayList<empDTO>();
 				list.add(dto);
 
 			}
