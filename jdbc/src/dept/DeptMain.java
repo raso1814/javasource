@@ -9,6 +9,7 @@ public class DeptMain {
 
 		boolean run = true;
 		Scanner sc = new Scanner(System.in);
+
 		DeptDAO dao = new DeptDAO();
 
 		while (run) {
@@ -87,8 +88,7 @@ public class DeptMain {
 				break;
 			}
 
-		}
-
 	}
 
+	}
 }
