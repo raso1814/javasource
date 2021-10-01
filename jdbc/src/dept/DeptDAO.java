@@ -162,6 +162,47 @@ static {
 		return insertFlag;
 	}
 	
+	//부서명 변경 "update dept_temp set dname = ? where deptno=?"
+
+	
+	public boolean update(String dname, int deptNo) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		boolean updateFlag = false;
+		
+		try {
+			
+			con = getConnection();
+			
+			String sql = "update dept_temp set dname = ? where deptno =?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, dname);
+			pstmt.setInt(2, deptNo);
+			
+			int result = pstmt.executeUpdate();
+
+			if(result >0) {
+				updateFlag = true;
+				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		return updateFlag;
+	}
+	
+	
 	
 }
 	
