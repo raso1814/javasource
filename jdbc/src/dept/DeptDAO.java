@@ -202,7 +202,45 @@ static {
 		return updateFlag;
 	}
 	
+
+	//delete from dept_temp where deptno=?"
 	
+	public boolean delete(int deptno){
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		boolean deleteFlag = false;
+		
+		try {
+			
+			con = getConnection();
+			
+			String sql = "delete dept_temp where deptno = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, deptno);
+			
+			int result = pstmt.executeUpdate();
+		
+			if(result>0) {
+				deleteFlag = true;
+				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+		}
+		
+		return deleteFlag;
+		
+	}
 	
 }
 	
