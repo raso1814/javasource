@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -60,11 +61,24 @@ public class AddCalculator extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String cmd = e.getActionCommand();
-		if (cmd.equals("확인")&& tf1 != null && tf2 != null) {
-			int num1 = Integer.parseInt(tf1.getText());
-			int num2 = Integer.parseInt(tf2.getText());
-			String result = String.valueOf(num1 + num2);
-			tf3.setText(result);
+		if (cmd.equals("확인")) {
+			
+			int num1;
+			int num2;
+			String result; 
+			try {
+				num1 = Integer.parseInt(tf1.getText());
+				num2 = Integer.parseInt(tf2.getText());
+				result = String.valueOf(num1 + num2);
+				tf3.setText(result);
+				
+			} catch (Exception e2) {
+				//e2.printStackTrace(); -- 개발할때 예외 발생단계를 출력
+				
+				//사용자에게 메시지 출력
+				JOptionPane.showMessageDialog(getParent(), "입력값을 확인해주세요");
+			} 
+			
 
 		} else {
 			
