@@ -9,7 +9,6 @@ import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import com.sun.xml.internal.ws.org.objectweb.asm.Label;
 
 public class MouseEventTest3 extends JFrame {
 
