@@ -96,6 +96,7 @@ public class JTableTest3 extends JFrame {
 
 		if (!vecList.isEmpty()) {
 			for (UserDTO dto : vecList) {
+				
 				Vector<Object> newVec = new Vector<Object>();
 				newVec.add(dto.getNo());
 				newVec.add(dto.getUserName());
